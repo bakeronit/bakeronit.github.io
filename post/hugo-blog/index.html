@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="ls -l ZJ">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://bakeronit.com/img/home-bg-tree.jpg">
+    <meta property="twitter:image" content="https://bakeronit.com/img/home-bg-tree.jpg" />
+    
+
+    
+    <meta name="title" content="用Hugo构建博客" />
+    <meta property="og:title" content="用Hugo构建博客" />
+    <meta property="twitter:title" content="用Hugo构建博客" />
+    
+
+    
+    <meta name="description" content="Zhang Jia, PhD student | 这里是 张佳 的博客">
+    <meta property="og:description" content="Zhang Jia, PhD student | 这里是 张佳 的博客" />
+    <meta property="twitter:description" content="Zhang Jia, PhD student | 这里是 张佳 的博客" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="张佳, zhangjia, Zhangjia, 生物信息学">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>用Hugo构建博客-张佳的博客 | Zhangjia Blog</title>
+
+    <link rel="canonical" href="/post/hugo-blog/">
+
+    <link rel="stylesheet" href="/css/iDisqus.min.css"/>
+	
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+    
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    
+    <script src="/js/jquery.min.js"></script>
+    
+    
+    <script src="/js/bootstrap.min.js"></script>
+    
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">ls -l ZJ</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/note">note</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search">SEARCH <img src="/img/search.png" height="15" style="cursor: pointer;" alt="Search"></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/home-bg-tree.jpg')
+    }
+</style>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/web" title="web">
+                            web
+                        </a>
+                        
+                    </div>
+                    <h1>用Hugo构建博客</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by 
+                        
+                                 &#34;ZJ&#34;
+                         
+                        on 
+                        Sunday, November 29, 2020
+                        
+                        
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>TOC</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#content">Content</a></li>
+        <li><a href="#front-matter">Front Matter</a></li>
+        <li><a href="#archetypes">Archetypes</a></li>
+        <li><a href="#taxonomies">Taxonomies</a></li>
+        <li><a href="#template">Template</a></li>
+        <li><a href="#variable">Variable</a></li>
+        <li><a href="#function">Function</a></li>
+        <li><a href="#data-files">Data files</a></li>
+        <li><a href="#shortcodes">Shortcodes</a></li>
+        <li><a href="#go-public">Go public</a></li>
+        <li><a href="#github-page">github page</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+                <p>之前学着用hexo和github page建了一个博客，虽然购买了几年的域名，但是几乎处于荒废状态。也没有研究具体的用法，最近周围的人很多都开始用jekyll来做一些静态的网页用来当自己的简历或者写教程，所以我也有了重新开始折腾博客的想法。最终我选择了用Hugo，只是因为它很快。和Hexo还有Jekyll一样，Hugo也是一个用于生成静态网页的框架。不同的是Hugo使用Go语言写的，Hexo和Jekyll分别用的是Node.js和Ruby。我选择了这个<a href="">CleanWhite</a>的主题，和之前我hexo的主题很像。你也可以不用主题，直接在layout文件夹里定义自己的模板。</p>
+<p>跟着网上的教程安装并配置好主题后，我简单的研究了一下hugo的结构和用法，尝试去理解一些技术层面的东西，但是并不深入。</p>
+<h2 id="content">Content</h2>
+<p>所有的文章都在content文件夹下以markdown格式存在，使用 <code>hugo new filename.md</code>可以直接在content下生成一个空白的模板。可以将文件生成在content下的子文件夹，不存的文件夹在hugo会生成。产生的页面则是在对应的文件夹名下。例如，<code>hugo new dir1/filename.md</code>的对应页面是<code>domainname.com/dir1/filename</code>。</p>
+<h2 id="front-matter">Front Matter</h2>
+<p>Front Matter是markdown文件最上方用来预先定义参数的内容，下面是YAML的格式，TOML格式的语法非常相似，但是使用加号分隔，并且用等号赋值。Hugo支持YAML,TOML和JSON格式，Jekyll只支持YAML。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">---
+ <span style="color:#ff79c6">title</span>: <span style="color:#f1fa8c">&#34;title&#34;</span>
+ <span style="color:#ff79c6">date</span>:  2020-11-28
+ <span style="color:#ff79c6">author</span>: <span style="color:#f1fa8c">&#34;anyone&#34;</span>
+ <span style="color:#ff79c6">tags</span>: [<span style="color:#f1fa8c">&#34;tag1&#34;</span>]
+---
+</code></pre></div><p>Front Matter 提前指定了一些变量(predefined var)，在html中调用, 如 <!-- raw HTML omitted -->{{ .Title }}<!-- raw HTML omitted -->。Hugo提供了很多预定义的变量，如title，date，image，categories，layout等。你可以有自己在front matter里定义自己的变量，Hugo会全部放到一个Param变量，然后通过{{ .Param.var }}来访问。front matter让你很方便的对页面进行设置，你可以用变量weight来控制文章在listing页面的排序。比如想要置顶就是<code>weight:1</code>.</p>
+<h2 id="archetypes">Archetypes</h2>
+<p>Archetypes是创建新的post文章的模板文件,也是md文件，就在archtypes文件夹下面。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
+title:       &#34;{{ replace .TranslationBaseName &#34;-&#34; &#34;-&#34; | title }}&#34;
+date:        &#34;{{ .Date }}&#34;
+draft:       true
+author:      &#34;JZ&#34;
+tags:        [&#34;tag1&#34;, &#34;tag2&#34;]
+categories:  [&#34;Note&#34; ]
+---
+
+** insert things here **
+
+</code></pre></div><p>可以定义多个archtypes作为不同类型文章的模板，例如有一个post.md。你可以通过<code>hugo new post/my-post.md</code>创建这个文件。</p>
+<h2 id="taxonomies">Taxonomies</h2>
+<p>这个是一个用于对文章进行分组的功能，让用户可以根据文章的一些属性进行分类，也方便查询和阅读。Hugo默认的Taxonomies有tags和categories，都可以在front matter里直接定义，hugo会为每个标签或者category生成单独的页面。具体的用法取决于模板定义，我用的这个模板，会将不同的categories的文章放到一个单独的列表页面，在header里可以进行访问。</p>
+<p>当然你也可以添加自己的taxonomies，比如说你想根据当天的天气，心情来分类，可以在front matter里定义：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-YAML" data-lang="YAML">---
+<span style="color:#ff79c6">title</span>:       <span style="color:#f1fa8c">&#34;{{ replace .TranslationBaseName &#34;</span>-<span style="color:#f1fa8c">&#34; &#34;</span>-<span style="color:#f1fa8c">&#34; | title }}&#34;</span>
+<span style="color:#ff79c6">date</span>:        <span style="color:#f1fa8c">&#34;{{ .Date }}&#34;</span>
+<span style="color:#ff79c6">tags</span>:        [<span style="color:#f1fa8c">&#34;travel&#34;</span>, <span style="color:#f1fa8c">&#34;photo&#34;</span>]
+<span style="color:#ff79c6">categories</span>:  [<span style="color:#f1fa8c">&#34;Life&#34;</span> ]
+<span style="color:#ff79c6">moods</span>:       [<span style="color:#f1fa8c">&#39;happy&#39;</span>]
+<span style="color:#ff79c6">weathers</span>:    [<span style="color:#f1fa8c">&#39;sunny&#39;</span>]
+---
+</code></pre></div><p>但是因为不会默认的taxonomies，hugo不会为这个分类单独生成一个页面，所以需要在配置文件<code>config.toml</code>里设置。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-TOML" data-lang="TOML">[taxonomies]
+  tag = <span style="color:#f1fa8c">&#34;tags&#34;</span>
+  category = <span style="color:#f1fa8c">&#34;categories&#34;</span>
+  mood = <span style="color:#f1fa8c">&#34;moods&#34;</span>
+  weather = <span style="color:#f1fa8c">&#34;weathers&#34;</span>
+</code></pre></div><h2 id="template">Template</h2>
+<p>我用的是别人写好的主题，但是其实主题也是别人写好的模板。在hugo里有两种模板，一种是列表模板，一个是single模板。在<code>layout/_default</code>文件夹下的<code>list.html</code>和<code>single.html</code>就是列表页面和single页面的模板。列表页面用于显示多个文章，single页面就是显示一篇文章。这些页面都共享一些元素，比如说header，footer等。每一篇文章的页面基本结构都是一样的，除了文章本身的内容。所以用到模板就可以只建好一个html页面，然后用markdown解析的内容替换模板中的一些变量。</p>
+<p>还有一些页面你可以自己定义，主题里的layout会被根目录里的模板覆盖。主要其实也是一个列表页面，如果你不想你的主页是一个简单的列表页面，或者你想在模板上进行改进。你可以在<code>layout/index.html</code>再创建一个home page模板。</p>
+<p>如果你想对在content文件夹下的文章用单独的模板，可以使用section template。只需要在layout下单独添加<code>single.html</code>或者<code>list.html</code>。简单的说就是content里文件夹里的md文件会调用layout文件夹下对应文件夹名里的模板html。另外，因为博客网页的结构非常单一，所以还可以用一个base template来减少代码量。在<code>layout/_default</code>下的文件<code>baseof.html</code>就是整个网页的基本框架的模板。在<code>baseof.html</code>里，可以用到一个特殊的hugo实体block, 在html里可以插入一些block来占位，然后在另一个html里定义这个block的内容。</p>
+<p>还有一种模板的用法是partial templates，是一种可以模块化的方法。可以把一个页面的元素拆分开来，将页面里的header，footer或者sidebar单独写成一个文件。这些partial的模板要放在<code>layout/partials</code>下面。例如，你有一个<code>header.html</code>的partial模板：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">h1</span>&gt;{{.Title}}&lt;/<span style="color:#ff79c6">h1</span>&gt;
+&lt;<span style="color:#ff79c6">p</span>&gt;{{.Date}}&lt;/<span style="color:#ff79c6">p</span>&gt;
+</code></pre></div><p>然后在single template里，你想要用这个header模板,就要使用partial这个函数，<code>{{ partial &quot;header&quot; .}}</code>, 这里的点代表你想要使用的范围是所有，这样你才可以访问到partial里所有的变量。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ partial &#34;header&#34; . }}
+{{.Title}}
+</code></pre></div><p>这是一个<code>baseof.html</code>模板</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span> <span style="color:#50fa7b">dir</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;ltr&#34;</span>&gt;
+  &lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;utf-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">title</span>&gt;&lt;/<span style="color:#ff79c6">title</span>&gt;
+  &lt;/<span style="color:#ff79c6">head</span>&gt;
+  &lt;<span style="color:#ff79c6">body</span>&gt;
+    Top of baseof
+    &lt;<span style="color:#ff79c6">hr</span>&gt;
+    {{ block &#34;main&#34; . }}
+
+    {{ end }}
+    &lt;<span style="color:#ff79c6">hr</span>&gt;
+    bottom of baseof
+  &lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div><p>在<code>single.html</code>模板中定义对应的main block：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ define &#34;main&#34; }}
+ this is the single template
+ add any content here
+{{ end }}
+</code></pre></div><p>你可以在baseof里写好通用的block，也可以在单个模板里重写，但是这个功能大大减少了代码的冗余。</p>
+<h2 id="variable">Variable</h2>
+<p>在之前已经有在html里调用变量的例子了，基本上就是用双花括号。例如要在html中插入标题和日期：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#ff79c6">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#ff79c6">html</span> <span style="color:#50fa7b">lang</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;en&#34;</span> <span style="color:#50fa7b">dir</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;ltr&#34;</span>&gt;
+  &lt;<span style="color:#ff79c6">head</span>&gt;
+    &lt;<span style="color:#ff79c6">meta</span> <span style="color:#50fa7b">charset</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;utf-8&#34;</span>&gt;
+    &lt;<span style="color:#ff79c6">title</span>&gt;{{ .Title }}&lt;/<span style="color:#ff79c6">title</span>&gt;
+  &lt;/<span style="color:#ff79c6">head</span>&gt;
+  &lt;<span style="color:#ff79c6">body</span>&gt;
+    Today is {{ .Date }}
+    This is the link to the file {{ .URL }}
+  &lt;/<span style="color:#ff79c6">body</span>&gt;
+&lt;/<span style="color:#ff79c6">html</span>&gt;
+</code></pre></div><p>在front matter可以有更多的自定义变量，通过<code>{{ .Param.Var }}</code>访问。除了在front matter 里定义，你可以在html里直接创建变量。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ $myVar := &#34;aString&#34; }}
+&lt;<span style="color:#ff79c6">h1</span>&gt;This is a custom var: {{ $myVar }}&lt;/<span style="color:#ff79c6">h1</span>&gt;
+</code></pre></div><p>Hugo还有很多特有的变量可以在html里调用，具体有哪些变量可以在<a href="https://gohugo.io/categories/variables-and-params">官方文档</a>里看到。</p>
+<h2 id="function">Function</h2>
+<p>Hugo预先写好了一些函数方便使用，函数只能在layout下的模板文件里使用。用法也很简单:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ funcName param1 param2 .. paramN}}
+</code></pre></div><p>有一些处理字符串的函数比较常用，如truncate会截断字符串到指定长度：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ truncate 10 &#34;This a way long long long long way to go&#34; }}
+</code></pre></div><p>hugo也可以写循环：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ range .Pages }} #.Pages 是一个hugo变量，代表当前section的page数。
+ {{ .Title }} #这里打印出所有文章
+{{ end }}
+</code></pre></div><p>hugo所有的函数也可以在<a href="https://gohugo.io/functions/">这里</a>查到。</p>
+<p>当然，hugo也可以有if-else，也是需要放在双括号里。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ $a := &#34;apple&#34; }}
+{{ $b := &#34;orange&#34; }}
+
+{{ if not (eq $a $b) }}
+ True
+{{ else }}
+ False
+{{ end }}
+</code></pre></div><p>这个条件执行语句可以用在style里，例如你列出了所有的文件，但是想要当前标黄页面名。结合for loop和if：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">h1</span>&gt;Single template&lt;/<span style="color:#ff79c6">h1</span>&gt;
+
+{{ $title := .Title}} #当前页面名
+{{ range .Site.Pages }}
+&lt;<span style="color:#ff79c6">li</span>&gt;&lt;<span style="color:#ff79c6">a</span> <span style="color:#50fa7b">href</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;{{ .URL }}&#34;</span> <span style="color:#50fa7b">style</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;{{if eq $title .Title }} background-color: yellow; {{end}}&#34;</span>&gt;&lt;/<span style="color:#ff79c6">a</span>&gt;{{.Title}}&lt;/<span style="color:#ff79c6">li</span>&gt;
+</code></pre></div><h2 id="data-files">Data files</h2>
+<p>在根目录下，我还看见了一个data文件夹，是空的。我不太懂怎么用，通常动态网页会有一个对应的数据库，但是hugo用于生产静态网页，data文件夹放的都是YAML,TOML或者JSON格式的文件。例如你存了一些JSON格式表格信息，可以通过for loop在模板里访问到这个文件通过变量{{ .Site.Data.filename }}。这个应该很少用的。</p>
+<h2 id="shortcodes">Shortcodes</h2>
+<p>shortcodes算是hugo一个比较高级的功能了，我应该不怎么用到。markdown来写文档很简单，如果要在页面嵌入像视频这样的复杂的元素就需要在markdown中插入一大段html。这样看起来并不美观，而且markdown并不支持和html共存，需要进行解析。shortcodes只是用很小一段代码标记，就可以在网页生成的时候，用对应的html代码去替换这个区域。具体的html模板都是放在<code>layout/shortcodes/</code>下。</p>
+<p>比如说建立了一个youtube嵌入视频的hmtl模板<code>layout/shortcodes/youtube.html</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">style</span>&gt;
+    #biliplayer {
+      <span style="color:#ff79c6">width</span>: <span style="color:#bd93f9">100</span><span style="color:#8be9fd">%</span>;
+      <span style="color:#ff79c6">height</span>: <span style="color:#bd93f9">600</span><span style="color:#8be9fd">px</span>;
+    }
+    @<span style="color:#ff79c6">media</span> <span style="color:#ff79c6">only</span> <span style="color:#ff79c6">screen</span> <span style="color:#ff79c6">and</span> <span style="color:#ff79c6">(</span><span style="color:#ff79c6">min-device-width</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">320px</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">and</span> <span style="color:#ff79c6">(</span><span style="color:#ff79c6">max-device-width</span><span style="color:#ff79c6">:</span> <span style="color:#ff79c6">480px</span><span style="color:#ff79c6">)</span> {
+      #biliplayer {
+        <span style="color:#ff79c6">width</span>: <span style="color:#bd93f9">100</span><span style="color:#8be9fd">%</span>;
+        <span style="color:#ff79c6">height</span>: <span style="color:#bd93f9">250</span><span style="color:#8be9fd">px</span>;
+      }
+    }
+&lt;/<span style="color:#ff79c6">style</span>&gt;
+
+&lt;<span style="color:#ff79c6">div</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;embed video-player&#34;</span>&gt;
+&lt;<span style="color:#ff79c6">iframe</span> <span style="color:#50fa7b">class</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;youtube-player&#34;</span> <span style="color:#50fa7b">type</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;text/html&#34;</span> <span style="color:#50fa7b">width</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;640&#34;</span> <span style="color:#50fa7b">height</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;385&#34;</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://www.youtube.com/embed/{{ index .Params 0 }}&#34;</span> <span style="color:#50fa7b">allowfullscreen</span> <span style="color:#50fa7b">frameborder</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;0&#34;</span>&gt;
+&lt;/<span style="color:#ff79c6">iframe</span>&gt;
+&lt;/<span style="color:#ff79c6">div</span>&gt;
+</code></pre></div><p>在markdown文档中，只用调用这个模板并提供对应视频的AV号就可以了。</p>
+<pre><code class="language-「markdown」" data-lang="「markdown」">
+## here is a youtube video.
+{{&lt; youtube r_Ws-jW1Rz4 &gt;}}
+
+</code></pre><p>借用一下同学的视频。
+<div class="embed video-player">
+<iframe class="youtube-player" type="text/html" width="640" height="385" src="https://www.youtube.com/embed/r_Ws-jW1Rz4" allowfullscreen frameborder="0">
+</iframe>
+</div>
+</p>
+<p>简单的想，shortcodes给我的感觉有点像自定义的函数，然后可以在markdown里直接调用。例如你可以写一个<code>myshortcode.html</code>在shortcodes文件夹下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> &lt;<span style="color:#ff79c6">p</span> <span style="color:#50fa7b">style</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;color:{{index .Params 0}}&#34;</span>&gt;This is a string that can be any color specified by shortcodes&lt;/<span style="color:#ff79c6">p</span>&gt;
+</code></pre></div><p>然后在md文件中调用它：</p>
+<pre><code class="language-{markdown}" data-lang="{markdown}">{{&lt; myshortcode brown &gt;}}
+</code></pre><p>也可以不用参数传递的形式传入参数，可以用shortcodes的标签包括内容。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{&lt; <span style="color:#ff79c6">myshortcode</span> &gt;}}
+anytext that are not been rendered.
+{{ /myshortcode}}
+</code></pre></div><p>如果你需要传入的字符被render:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{% myshortcode %}}
+**bold text**
+{{ /myshortcode}}
+</code></pre></div><p>我没有很深入的研究更多的用法，希望以后有机会可以用到。</p>
+<h2 id="go-public">Go public</h2>
+<p>使用<code>hugo server</code>命令可以本地预览网页，最终还是要生成一堆html用于放在自己的或者github的服务器上。只需要运行<code>hugo</code>，会生成一个public文件夹包含所有的html。把这个文件夹上传至服务器就可以运行自己的博客了。每次重新部署的时候，最好先把public文件夹删除。</p>
+<h2 id="github-page">github page</h2>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    
+                </ul>
+
+                
+<div id="disqus-comment"></div>
+
+
+
+            </div>
+            
+            <div class="
+                col-lg-11 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="ls -l ZJ" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fa fa-circle fa-stack-2x"></i>
+                               <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:bakeronit@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    <li>
+                        <a href="https://twitter.com/jiazhangjia">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/bakeronit">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; ls -l ZJ 2020
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+</body>
+</html>

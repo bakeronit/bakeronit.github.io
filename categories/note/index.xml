@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Note on ls -l ZJ</title>
+    <link>https://bakeronit.com/categories/note/</link>
+    <description>Recent content in Note on ls -l ZJ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 29 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://bakeronit.com/categories/note/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用Hugo构建博客</title>
+      <link>https://bakeronit.com/post/hugo-blog/</link>
+      <pubDate>Sun, 29 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bakeronit.com/post/hugo-blog/</guid>
+      <description>之前学着用hexo和github page建了一个博客，虽然购买了几年的域名，但是几乎处于荒废状态。也没有研究具体的用法，最近周围的人很多都开</description>
+    </item>
+    
+  </channel>
+</rss>
