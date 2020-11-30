@@ -236,7 +236,7 @@
  <span style="color:#ff79c6">author</span>: <span style="color:#f1fa8c">&#34;anyone&#34;</span>
  <span style="color:#ff79c6">tags</span>: [<span style="color:#f1fa8c">&#34;tag1&#34;</span>]
 ---
-</code></pre></div><p>Front Matter 提前指定了一些变量(predefined var)，在html中调用, 如 <!-- raw HTML omitted -->{{ .Title }}<!-- raw HTML omitted -->。Hugo提供了很多预定义的变量，如title，date，image，categories，layout等。你可以有自己在front matter里定义自己的变量，Hugo会全部放到一个Param变量，然后通过{{ .Param.var }}来访问。front matter让你很方便的对页面进行设置，你可以用变量weight来控制文章在listing页面的排序。比如想要置顶就是<code>weight:1</code>.</p>
+</code></pre></div><p>Front Matter 提前指定了一些变量(predefined var)，在html中调用, 如 <!-- raw HTML omitted -->{{ .Title }}<!-- raw HTML omitted -->。Hugo提供了很多预定义的变量，如title，date，image，categories，layout等。你可以有自己在front matter里定义自己的变量，Hugo会全部放到一个Param变量，然后通过{{ .Param.var }}来访问。你可以用变量weight来控制文章在listing页面的排序，想要置顶就是<code>weight:1</code>.</p>
 <h2 id="archetypes">Archetypes</h2>
 <p>Archetypes是创建新的post文章的模板文件,也是md文件，就在archtypes文件夹下面。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">---
@@ -270,7 +270,7 @@ categories:  [&#34;Note&#34; ]
   weather = <span style="color:#f1fa8c">&#34;weathers&#34;</span>
 </code></pre></div><h2 id="template">Template</h2>
 <p>我用的是别人写好的主题，但是其实主题也是别人写好的模板。在hugo里有两种模板，一种是列表模板，一个是single模板。在<code>layout/_default</code>文件夹下的<code>list.html</code>和<code>single.html</code>就是列表页面和single页面的模板。列表页面用于显示多个文章，single页面就是显示一篇文章。这些页面都共享一些元素，比如说header，footer等。每一篇文章的页面基本结构都是一样的，除了文章本身的内容。所以用到模板就可以只建好一个html页面，然后用markdown解析的内容替换模板中的一些变量。</p>
-<p>还有一些页面你可以自己定义，主题里的layout会被根目录里的模板覆盖。主要其实也是一个列表页面，如果你不想你的主页是一个简单的列表页面，或者你想在模板上进行改进。你可以在<code>layout/index.html</code>再创建一个home page模板。</p>
+<p>还有一些页面你可以自己定义，主题里的layout会被根目录里的模板覆盖。主页其实也是一个列表页面，如果你不想你的主页是一个简单的列表页面，或者你想在模板上进行改进。你可以在<code>layout/index.html</code>再创建一个home page模板。</p>
 <p>如果你想对在content文件夹下的文章用单独的模板，可以使用section template。只需要在layout下单独添加<code>single.html</code>或者<code>list.html</code>。简单的说就是content里文件夹里的md文件会调用layout文件夹下对应文件夹名里的模板html。另外，因为博客网页的结构非常单一，所以还可以用一个base template来减少代码量。在<code>layout/_default</code>下的文件<code>baseof.html</code>就是整个网页的基本框架的模板。在<code>baseof.html</code>里，可以用到一个特殊的hugo实体block, 在html里可以插入一些block来占位，然后在另一个html里定义这个block的内容。</p>
 <p>还有一种模板的用法是partial templates，是一种可以模块化的方法。可以把一个页面的元素拆分开来，将页面里的header，footer或者sidebar单独写成一个文件。这些partial的模板要放在<code>layout/partials</code>下面。例如，你有一个<code>header.html</code>的partial模板：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">h1</span>&gt;{{.Title}}&lt;/<span style="color:#ff79c6">h1</span>&gt;
@@ -390,7 +390,7 @@ anytext that are not been rendered.
 {{ /myshortcode}}
 </code></pre></div><p>我没有很深入的研究更多的用法，希望以后有机会可以用到。</p>
 <h2 id="go-public">Go public</h2>
-<p>使用<code>hugo server</code>命令可以本地预览网页，最终还是要生成一堆html用于放在自己的或者github的服务器上。只需要运行<code>hugo</code>，会生成一个public文件夹包含所有的html。把这个文件夹上传至服务器就可以运行自己的博客了。每次重新部署的时候，最好先把public文件夹删除。</p>
+<p>使用<code>hugo server</code>命令可以本地预览网页，最终还是要生成一堆html用于放在自己的或者github的服务器上。只需要运行<code>hugo</code>，会生成一个public文件夹包含所有的html。把这个文件夹上传至服务器就可以运行了。我是放在github pag</p>
 <h2 id="github-page">github page</h2>
 
 
